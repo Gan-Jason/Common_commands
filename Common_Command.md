@@ -18,7 +18,7 @@
     mysqladmin -u用户名 -p旧密码 password 新密码
     </td></tr></table>
 * 给用户(root)加个密码
-    <table><tr><td bgcolor=pink>
+    <table><tr><td bgcolor=black>
     mysqladmin -u用户名 -p旧密码 password 新密码
     </td></tr></table>
 ***注：因为开始时root没有密码，所以-p旧密码一项就可以省略了。 如果进入了mysql后想修改密码，参照下条*** 
