@@ -2,8 +2,9 @@
 
 ---
 
-##一.用户验证
-###1.连接MySQL
+## 一.用户验证  
+### 1.连接MySQL  
+
 * 语法  
     <table><tr><td bgcolor=pink>    
     mysql -h xx.xx.xx(主机ip,或为localhost) -u xxx(用户名) -p xxx(密码)
@@ -12,7 +13,7 @@
 ***注：用户名和主机IP前有无空格均可，但是密码前不能前不能有空格***
 
 ---
-###2.修改密码
+### 2.修改密码
 * 语法
     <table><tr><td bgcolor=pink>
     mysqladmin -u用户名 -p旧密码 password 新密码
@@ -30,8 +31,8 @@
 ***注：以上均是对MySQL服务的操作，不属于SQL语句，句尾不需要分号，和以下区分***
 
 ---
-##二.数据库操作
-###3.添加新用户
+## 二.数据库操作
+### 3.添加新用户
 * 语法
    <table><tr><td bgcolor=pink>
      grant select on 数据库.* to 用户名@登录主机 identified by “密码”
@@ -45,7 +46,7 @@
    
 * 增加一个用户test2密码为abc,让他只可以在localhost上登录，并可以对数据库mydb进行查询、插入、修改、删除的操作(localhost指本地主机，即MYSQL数据库所在的那台主机),这样用户即使用知道test2的密码，他也无法从internet上直接访问数据库，只能通过MYSQL主机上的web页来访问了。
 
-###4.数据库操作
+### 4.数据库操作
 * 创建数据库
    <table><tr><td bgcolor=pink>
     create database database_name;
@@ -62,7 +63,7 @@
    <table><tr><td bgcolor=pink>
     use <数据库名>;
    </td></tr></table>
-###5.数据表操作
+### 5.数据表操作
 * 显示所有数据表
    <table><tr><td bgcolor=pink>
     show tables;
@@ -101,7 +102,8 @@
    <table><tr><td bgcolor=pink>
     delete from <表名> where folderName = 'test';
    </td></tr></table>
-###6.数据表段操作
+    
+### 6.数据表段操作
 * 语法
 * 添加字段
    <table><tr><td bgcolor=pink>
