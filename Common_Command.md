@@ -77,6 +77,11 @@
    <table><tr><td bgcolor=pink>
     create table  <数据表名> (name char(100), path char(100), count int(10), firstName char(100), firstMD5 char(100), secondName char(100), secondMD5 char(100), thirdName char(100), thirdMD5 char(100))engine=innodb,charset='utf8';
    </td></tr></table>
+* 列出创建表时的创建语句，包含注释
+   <table><tr><td bgcolor=pink>
+    show create table <tableName>\G
+   </td></tr></table>
+    
 ***注：创建表的结构、默认值、索引、递增递减自己选***
 * 修改表名
    <table><tr><td bgcolor=pink>
@@ -94,6 +99,14 @@
    <table><tr><td bgcolor=pink>
     select firstMD5, count(*) as count from MIFit_Image group by firstMD5 having count > 1;  
    </td></tr></table
+* 内联接查询数据
+   <table><tr><td bgcolor=pink>
+    select <table1>.id,<table1>.name,<table2>.id,<table2>.name from <table1> inner join <table2> on <table1>.id=<table2>.id; --组合两个表中的记录，返回关联字段相符的记录，也就是返回两个表的交集
+   </td></tr></table>
+* 左联接查询数据
+   <table><tr><td bgcolor=pink>
+    select <table1>.id,<table1>.name,<table2>.id,<table2>.name from <table1> left join <table2> on <table1>.id=<table2>.id; --left join 是left outer join的简写，它的全称是左外连接，是外连接中的一种。左(外)连接，左表(a_table)的记录将会全部表示出来，而右表(b_table)只会显示符合搜索条件的记录。右表记录不足的地方均为NULL。也就是以左表数据为准，把左表数据全部列出来，右表没有相关数据的补NULL；
+   </td></tr></table>
 * 更新数据
    <table><tr><td bgcolor=pink>
     update <表名> set folderName ='Mary' where id=1;
@@ -142,4 +155,9 @@
 * 删除索引
     <table><tr><td bgcolor=pink>
     alter table <表名> drop index indexName;
+    </td></tr></table>
+    
+* 修改字段的默认值(例如修改时间字段默认值为当前时间戳)
+    <table><tr><td bgcolor=pink>
+    alter table <表名> modify <columnName> timestamp not null default current_timestamp;
     </td></tr></table>
