@@ -79,7 +79,7 @@
    </td></tr></table>
 * 列出创建表时的创建语句，包含注释
    <table><tr><td bgcolor=pink>
-    show create table <tableName> \G
+    show create table <表名> \G
    </td></tr></table>
     
 ***注：创建表的结构、默认值、索引、递增递减自己选***
