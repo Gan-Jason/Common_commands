@@ -161,3 +161,29 @@
     <table><tr><td bgcolor=pink>
     alter table <表名> modify <columnName> timestamp not null default current_timestamp;
     </td></tr></table>
+    
+    
+  
+## MySQL数据类型  
+* MySQL支持所有标准SQL数值数据类型。这些类型包括严格数值数据类型(INTEGER、SMALLINT、DECIMAL和NUMERIC)，以及近似数值数据类型(FLOAT、REAL和DOUBLE PRECISION)。关键字INT是INTEGER的同义词，关键字DEC是DECIMAL的同义词。BIT数据类型保存位字段值，并且支持MyISAM、MEMORY、InnoDB和BDB表。作为SQL标准的扩展，MySQL也支持整数类型TINYINT、MEDIUMINT和BIGINT。下面的表显示了需要的每个整数类型的存储和范围。  
+* 1、整型
+
+|MySQL数据类型|含义（有符号）|
+|----|----|
+|tinyint(m) |1个字节  范围(-128~127)|
+|smallint(m)	|2个字节  范围(-32768~32767)|
+|mediumint(m)	|3个字节  范围(-8388608~8388607)|
+|int(m)	        |4个字节  范围(-2147483648~2147483647)|
+|bigint(m)	    |8个字节  范围(+-9.22*10的18次方)|  
+
+* 取值范围如果加了unsigned，则最大值翻倍，如tinyint unsigned的取值范围为(0~256)。
+int(m)里的m是表示SELECT查询结果集中的显示宽度，涉及MySQL中一个fillzero机制，也就是补零，对于整型，如果不满m位则在前面补零，例：int(4),select结果为18时，显示结果是0018，如果超出了这个m范围，则显示实际的查询结果，不影响；而对于字符串类型则会被影响，如果超出了m，则超出的被丢失。  
+* 2、浮点型(float和double)  
+|MySQL数据类型|含义|
+|float(m,d)	|单精度浮点型    8位精度(4字节)     m总个数，d小数位|
+|double(m,d)|双精度浮点型    16位精度(8字节)    m总个数，d小数位|
+* 设一个字段定义为float(5,3)，如果插入一个数123.45678,实际数据库里存的是123.457，但总个数还以实际为准，即6位。  
+* 3、定点数  
+* 浮点型在数据库中存放的是近似值，而定点类型在数据库中存放的是精确值。decimal(m,d) 参数m<65 是总个数，d<30且 d<m 是小数位。  
+* 4、字符串(char,varchar,_text)  
+
