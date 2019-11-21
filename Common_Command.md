@@ -116,6 +116,7 @@
     delete from <表名> where folderName = 'test';
    </td></tr></table>
     
+* 执行外部sql文件：source <sql文件全路径(例：xxx.sql)>;
 ### 6.数据表段操作
 * 语法
 * 添加字段
@@ -229,3 +230,5 @@ varchar和text：
 |timestamp	|自动存储记录修改时间|
 
 * 若定义一个字段为timestamp，这个字段里的时间数据会随其他字段修改的时候自动刷新，所以这个数据类型的字段可以存放这条记录最后被修改的时间。  
+* 时间格式化的函数date_format()的使用：date_format('20190101080000','%Y-%m-%d %H:%i:%s');
+* 这个函数会把时间格式化为：2019-01-01 08:00:00
